@@ -4,11 +4,18 @@
 
 using namespace std;
 
-struct Customer_info{
-    string first_name;
-    string last_name;
+struct Customer_info {
+    string first_name {""};
+    string last_name {""};
+    int age {0};
 };
 
+struct Cost {
+    const double per_night {80.0};
+    const double per_room {50.0};
+    const double sales_tax {0.06};
+    const int percent_converter {100};
+};
     const vector <string> options
     {
         "Learn more about various facilities.", 
@@ -27,11 +34,10 @@ struct Customer_info{
     
     const char prefix {'$'};
     
-    const double per_night {80.0}; const double per_room {50.0}; const double sales_tax {0.06}; const int percent_converter {100};
-    
 double Calculate_final_cost(double arg1, double arg2, double arg3, double arg4, double arg5) {
+        struct Cost cost;
         double result {0};
-        result = (arg1 * arg2) + (arg3 * arg4) + arg5 * percent_converter;
+        result = (arg1 * arg2) + (arg3 * arg4) + arg5 * cost.percent_converter;
         return result;
 }
 int main() {
@@ -74,36 +80,42 @@ int main() {
                 cout << "How many rooms will it be: ";
                 cin >> number_of_rooms;
                 
-                bool isValid {false};
-                isValid = ((stay_duration != 0 && number_of_rooms != 0 ? true : false));
+                bool is_number_valid {false};
+                is_number_valid = ((stay_duration != 0 && number_of_rooms != 0 ? true : false));
                 
-                switch (isValid)
+                switch (is_number_valid)
                 {
-                    case true: 
+                    case true:
                     {
                         cout << endl << "========== " << "Final order ==========" << endl;
                         cout << "Duration: " << stay_duration << " days." << endl;
                         cout << "Rooms: " << number_of_rooms << " rooms" << endl;
+                        struct Cost cost;
                         int grand_total {0};
-                        grand_total += Calculate_final_cost(per_night, stay_duration, per_room, number_of_rooms, sales_tax);
+                        grand_total += Calculate_final_cost(cost.per_night, stay_duration, cost.per_room, number_of_rooms, cost.sales_tax);
                         cout << "Grand total: " << prefix << grand_total << " (included tax)" << "." << endl;
                         cout << endl << "========== Pricing breakdown (Per day) ==========" << endl;
-                        cout << "A night will cost: " << prefix << per_night << endl;
+                        cout << "A night will cost: " << prefix << cost.per_night << endl;
                         cout << "You want to stay for: " << stay_duration << " days." << endl;
                         double result_1 {0};
-                        result_1 = Calculate_final_cost(per_night, stay_duration, 0, 0, 0);
-                        cout << "So it will be:" << prefix << per_night << "x" << stay_duration << " which it will be " << prefix << result_1 << "." << endl;
+                        result_1 = Calculate_final_cost(cost.per_night, stay_duration, 0, 0, 0);
+                        cout << "So it will be:" << prefix << cost.per_night << "x" << stay_duration << " which it will be " << prefix << result_1 << "." << endl;
                         cout << endl << "========== Pricing breakdown (Per room) ==========" << endl;
-                        cout << "A room will cost: " << prefix << per_room << endl;
+                        cout << "A room will cost: " << prefix << cost.per_room << endl;
                         cout << "You want to book : " << number_of_rooms << " rooms" << endl;
                         double result_2 {0};
-                        result_2 = Calculate_final_cost(per_room, number_of_rooms, 0, 0, 0);
-                        cout << "So it will be:" << prefix << per_room << "x" << number_of_rooms << " which it will be " << prefix << result_2 << "." << endl;
+                        result_2 = Calculate_final_cost(cost.per_room, number_of_rooms, 0, 0, 0);
+                        cout << "So it will be:" << prefix << cost.per_room << "x" << number_of_rooms << " which it will be " << prefix << result_2 << "." << endl;
                         cout << endl;
                         
                         struct Customer_info customer_info;
-                        cout << "May I get your name for the order?: ";
+                        
+                        cout << "May I get your first name for the order?: ";
                         cin >> customer_info.first_name;
+                        cout << "May I get your last name for the order?: ";
+                        cin >> customer_info.last_name;
+                        cout << "May I get your age for the order?: ";
+                        
                         break;
                     }
                     case false:
