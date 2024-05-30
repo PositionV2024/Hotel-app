@@ -8,5 +8,6 @@ When this project is ran in the IDE, there will a terminal (console) that will p
 ### Screenshot of the project
 ---
 https://raw.githubusercontent.com/PositionV2024/Hotel-app/main/Screenshots/Screenshot%201.png
+https://raw.githubusercontent.com/PositionV2024/Hotel-app/main/Screenshots/Screenshot%202.png
 
 #### Made by Clarence
