@@ -12,4 +12,5 @@ https://raw.githubusercontent.com/PositionV2024/Hotel-app/main/Screenshots/Scree
 https://raw.githubusercontent.com/PositionV2024/Hotel-app/main/Screenshots/Screenshot%203.png
 https://raw.githubusercontent.com/PositionV2024/Hotel-app/main/Screenshots/Screenshot%204.png
 https://raw.githubusercontent.com/PositionV2024/Hotel-app/main/Screenshots/Screenshot%205.png
+https://raw.githubusercontent.com/PositionV2024/Hotel-app/main/Screenshots/Screenshot%206.png
 #### Made by Clarence
