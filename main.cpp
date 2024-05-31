@@ -18,10 +18,10 @@ struct Cost {
 };
     const vector <string> options
     {
-        "Learn more about various facilities.", 
-        "Learn more about breakfast, lunch and dinner.",
-        "Learn more about the pricing.",
-        "Book your stay!!",
+        "(1) Learn more about various facilities.", 
+        "(2) Learn more about breakfast, lunch and dinner.",
+        "(3) Learn more about the pricing.",
+        "(4) Book your stay!!",
     };
     
     const vector <string> descriptions
@@ -30,7 +30,7 @@ struct Cost {
       "Hotel guest are allowed to stay or extend their stay duration. It will cost $80/day, $50/room, and there is a tax of 6%.",
     };
     
-    const string error_message {"Invalid input!! Ending program..."};
+    const string error_message {"Ending program..."};
     
     const char prefix {'$'};
     
@@ -47,9 +47,8 @@ int main() {
     
     cout << endl;
     
-    int n {1};
     for (auto ops: options) {
-        cout << "(" << n++ << ") " << ops << endl;
+        cout << ops << endl;
     }
     cout << endl;
     
@@ -114,8 +113,22 @@ int main() {
                         cin >> customer_info.first_name;
                         cout << "May I get your last name for the order?: ";
                         cin >> customer_info.last_name;
-                        cout << "May I get your age for the order?: ";
+                        cout << "May I get your age for the order? (Note: you must be 18 or over in order to book a stay): ";
+                        cin >> customer_info.age;
                         
+                        const int age_legal {18};
+                        
+                        bool is_age {false};
+                        is_age = ((customer_info.age >= age_legal ? true : false));
+                        
+                        switch (is_age)
+                        {
+                            case true:
+                                break;
+                            case false:
+                                cout << error_message;
+                                break;
+                        }
                         break;
                     }
                     case false:
