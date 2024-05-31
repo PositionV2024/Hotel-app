@@ -7,6 +7,7 @@ using namespace std;
 struct Customer_info {
     string first_name {""};
     string last_name {""};
+    string ID {""};
     int age {0};
 };
 
@@ -108,22 +109,27 @@ int main() {
                         cout << endl;
                         
                         struct Customer_info customer_info;
-                        
                         cout << "May I get your first name for the order?: ";
                         cin >> customer_info.first_name;
                         cout << "May I get your last name for the order?: ";
                         cin >> customer_info.last_name;
+                        
                         cout << "May I get your age for the order? (Note: you must be 18 or over in order to book a stay): ";
                         cin >> customer_info.age;
                         
-                        const int age_legal {18};
-                        
                         bool is_age {false};
-                        is_age = ((customer_info.age >= age_legal ? true : false));
+                        is_age = ((customer_info.age >= 18 ? true : false));
                         
                         switch (is_age)
                         {
                             case true:
+                                cout << "Please enter your ID: ";
+                                cin >> customer_info.ID;
+                                
+                                cout << "========== Customer information ==========" << endl;
+                                cout << "First name: " << customer_info.first_name << endl;
+                                cout << "Last name: " << customer_info.last_name << endl;
+                                cout << "ID: " << customer_info.ID;
                                 break;
                             case false:
                                 cout << error_message;
