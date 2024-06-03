@@ -7,7 +7,8 @@ When the project is executed in the IDE (Integrated Development Environment), th
 
 ### Screenshots of the project
 ---
-Note: I've used HTML to customize the width and the hight, so I recommend to use a PC to view these images or go to the screenshots folder in Hotel-app/Screenshots.
+Note: I've used HTML to customise the width and the height, so I recommend using a PC to view these images or navigate to the screenshots folder in the repository.
+
  <img src=https://raw.githubusercontent.com/PositionV2024/Hotel-app/main/Screenshots/Screenshot%201.png width=780 height=390/>
 There will be a list of options you can choose from ranging from one to four then the terminal will ask you to input an option number.
 
