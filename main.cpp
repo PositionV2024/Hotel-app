@@ -17,6 +17,9 @@ struct Cost {
     const double sales_tax {0.06};
     const int percent_converter {100};
 };
+
+    const string code {"TEST"};
+    
     const vector <string> options
     {
         "(1) Learn more about various facilities.", 
@@ -31,7 +34,12 @@ struct Cost {
       "Hotel guest are allowed to stay or extend their stay duration. It will cost $80/day, $50/room, and there is a tax of 6%.",
     };
     
-    const string error_message {"Ending program..."};
+    const vector <string> error_messages
+ {
+        "Ending program.", 
+        "Invalid promotion code.",
+        "Not at the legal age to place an order.",
+    };
     
     const char prefix {'$'};
     
@@ -60,7 +68,7 @@ int main() {
     
         switch (option_input) {
             default:
-                cout << error_message << endl;
+                cout << error_messages.at(0) << endl;
                 break;
             case 1:
                 cout << descriptions.at(0) << endl;
@@ -107,6 +115,27 @@ int main() {
                         result_2 = Calculate_final_cost(cost.per_room, number_of_rooms, 0, 0, 0);
                         cout << "So it will be:" << prefix << cost.per_room << "x" << number_of_rooms << " which it will be " << prefix << result_2 << "." << endl;
                         cout << endl;
+                        string promo_code {""};
+                        double promo_price {0.25};
+                        
+                        cout << "Enter a promo code (get 25% off from your first order): ";
+                        cin >> promo_code;
+                        
+                        bool is_promo_code_valid {false};
+                
+                        is_promo_code_valid = (( promo_code == code ? true : false));
+                        
+                        switch(is_promo_code_valid) {
+                            case true: 
+                            {
+                                grand_total -= promo_price * cost.percent_converter;
+                                cout << "Your new total will be " << prefix << grand_total << endl;
+                                break;
+                            }
+                            case false:
+                                cout << "Invalid promo code. No new total." << endl;
+                                break;
+                        }
                         
                         struct Customer_info customer_info;
                         cout << "May I get your first name for the order?: ";
@@ -123,22 +152,30 @@ int main() {
                         switch (is_age)
                         {
                             case true:
+                            {
                                 cout << "Please enter your ID: ";
                                 cin >> customer_info.ID;
-                                
+                            
                                 cout << "========== Customer information ==========" << endl;
                                 cout << "First name: " << customer_info.first_name << endl;
                                 cout << "Last name: " << customer_info.last_name << endl;
-                                cout << "ID: " << customer_info.ID;
+                                cout << "ID: " << customer_info.ID << endl;
+                                
+                                cout << "Please choose your prefered mode of payment." << endl;
+                                cout << "(1) Paypal (2) Credit card" << endl;
+                                
+                                int payment_type {0};
+                                cin >> payment_type;
                                 break;
+                            }
                             case false:
-                                cout << error_message;
+                                cout << error_messages.at(2);
                                 break;
                         }
                         break;
                     }
                     case false:
-                        cout << error_message << endl;
+                        cout << error_messages.at(0) << endl;
                         break;
                 }
             }
