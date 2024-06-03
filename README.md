@@ -3,7 +3,7 @@ This is a basic hotel app idea that I've come up with for this project. It will 
 
 ### Details of the project
 ---
-When the project is executed in the IDE (Integrated Development Environment), there will a terminal (console) that will pop up showing 4 options. These options are, learn more about various facilities, learn more about breakfast, lunch and dinner, learn more about the pricing, and book your stay and then the terminal (console) will ask you to input a number ranging from one to four. If the number is invalid or the number is out of range, the program ends. After you've entered a number according to the options, the terminal will show you a description based off your option.
+When the project is executed in the IDE (Integrated Development Environment), there will be a terminal (console) that will pop up, showing four options. These options are: learn more about various facilities; learn more about breakfast, lunch, and dinner; learn more about pricing; book your stay; and then the terminal (console) will ask you to input a number ranging from one to four. If the number is invalid or is out of range, the programme ends. After you've entered a number according to the options, the terminal will show you a description based on your option.
 
 ### Screenshots of the project
 ---
