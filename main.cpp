@@ -166,6 +166,22 @@ int main() {
                                 
                                 int payment_type {0};
                                 cin >> payment_type;
+                                
+                                bool is_payment_type_valid {false};
+                                is_payment_type_valid = (( payment_type > 0 && payment_type < 3 ? true : false));
+                                
+                                switch(is_payment_type_valid)
+                                {
+                                    case true:
+                                        switch (payment_type)
+                                        {
+                                            
+                                        }
+                                        break;
+                                    case false:
+                                        cout << "False is triggered";
+                                        break;
+                                }
                                 break;
                             }
                             case false:
