@@ -39,6 +39,7 @@ struct Cost {
         "Ending program.", 
         "Invalid promotion code.",
         "Not at the legal age to place an order.",
+        "Invalid payment type.",
     };
     
     const char prefix {'$'};
@@ -175,11 +176,14 @@ int main() {
                                     case true:
                                         switch (payment_type)
                                         {
-                                            
+                                            case 1:
+                                            case 2:
+                                                cout << "Thank you for your purchased." << endl;
+                                                break;
                                         }
                                         break;
                                     case false:
-                                        cout << "False is triggered";
+                                        cout << error_messages.at(3);
                                         break;
                                 }
                                 break;
